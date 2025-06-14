@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VDCL Login</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <div class="logo">VDCL</div>
+
+    <button class="btn facebook">CONTINUE WITH FACEBOOK</button>
+    <button class="btn apple">CONTINUE WITH APPLE</button>
+    <button class="btn google">CONTINUE WITH GOOGLE</button>
+
+    <div class="divider"><span>OR</span></div>
+
+    <form id="login-form">
+      <label>Email address or username</label>
+      <input type="text" placeholder="Email address or username" required>
+
+      <label>Password</label>
+      <div class="password-wrapper">
+        <input type="password" placeholder="Password" required>
+        <span class="toggle"></span>
+      </div>
+
+      <div class="options">
+        <a href="#">Forgot your password?</a>
+        <label><input type="checkbox" checked> Remember me</label>
+      </div>
+
+      <button type="submit" class="btn login">LOG IN</button>
+    </form>
+
+    <div class="signup">
+      <p>Don't have an account?</p>
+      <a href="signup.html" class="btn signup-btn">SIGN UP FOR AIMUSE</a>
+    </div>
+  </div>
+
+  <script>
+    document.querySelector('.toggle').addEventListener('click', e => {
+      const pw = e.target.previousElementSibling;
+      pw.type = pw.type === 'password' ? 'text' : 'password';
+    });
+
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      window.location.href = 'home.html';
+    });
+  </script>
+</body>
+</html>
