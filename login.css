@@ -1,0 +1,135 @@
+/* login.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+}
+
+/* Container */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 10px;      /* Kéo container lên sát top hơn */
+padding: 0 20px 20px;    /* Giảm padding trên, tăng padding trái phải */
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* Logo */
+.login-container .logo {
+  width: 250px;                /* Kích thước logo */
+  height: 150px;
+  margin: -10px auto 10px;     /* Kéo logo lên sát khung, cách dưới 10px */
+  background: url('logo.png') no-repeat center top;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+/* Social buttons */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 25px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+.facebook { background-color: #1877f2; color: white; }
+.apple    { background-color: #000;       color: white; }
+.google   { background-color: white;      color: #333; border: 1px solid #ccc; }
+
+/* Divider */
+.divider {
+  position: relative;
+  margin: 15px 0;
+}
+.divider span {
+  background: white;
+  padding: 0 10px;
+  position: relative;
+  z-index: 1;
+  color: #888;
+}
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 0; right: 0;
+  border-top: 1px solid #ccc;
+  z-index: 0;
+}
+
+/* Form fields */
+form {
+  text-align: left;
+}
+form label {
+  display: block;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+form input[type="text"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Password toggle */
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper .toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Options */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0;
+  font-size: 0.85rem;
+}
+
+/* Login button */
+.btn.login {
+  background-color: #1db954;
+  color: white;
+  margin-top: 10px;
+}
+
+/* Sign-up link */
+.signup {
+  margin-top: 15px;
+  text-align: center;
+}
+.signup-btn {
+  display: block;
+  width: 100%;                /* Đặt bằng width của nút Login */
+  padding: 12px;
+  margin: 10px 0 0;           /* Canh giữa và sát lên trên */
+  border: 1px solid #333;
+  border-radius: 25px;
+  color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
