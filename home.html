@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VDCL Home</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+  <div class="player-layout">
+    <aside class="sidebar">
+      <h1 class="logo">VDCL</h1>
+      <nav>
+        <ul>
+          <li class="active">Home</li>
+          <li>Search</li>
+          <li>Your Library</li>
+          <li>Create Playlist</li>
+          <li>Liked Songs</li>
+          <li>Your Episodes</li>
+        </ul>
+        <div class="genres">
+          <ul>
+            <li>Jazz</li>
+            <li>Indie</li>
+            <li>Rock</li>
+            <li>RADAR</li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <header class="header">
+      <div class="nav-buttons">
+        <button class="nav-btn prev">←</button>
+        <button class="nav-btn next">→</button>
+      </div>
+      <input type="text" class="search" placeholder="What do you want to listen to?">
+      <div class="user-area">
+        <button class="premium">Premium</button>
+        <div class="user">User A ▾</div>
+      </div>
+    </header>
+
+    <main class="main-area">
+      <section class="greeting">
+        <h2>Good afternoon</h2>
+        <div class="quick-access">
+          <div class="card"><img src="assets/urdunama.jpg" alt="Urdunama"><span>Urdunama</span></div>
+          <div class="card"><img src="assets/conversations.jpg" alt="Conversations"><span>Conversations with Tyler</span></div>
+          <div class="card"><img src="assets/lennys.jpg" alt="Lenny's Podcast"><span>Lenny's Podcast: Product | Growth | Career</span></div>
+          <div class="card"><img src="assets/newyork.jpg" alt="New York"><span>New York</span></div>
+          <div class="card"><img src="assets/desivc.jpg" alt="Desi VC"><span>The Desi VC: Indian Venture Capital | Angel</span></div>
+          <div class="card"><img src="assets/chillnama.jpg" alt="Chillnama"><span>Chillnama</span></div>
+        </div>
+      </section>
+
+      <section class="recommendations">
+        <h3>Episodes for you recommended by AI</h3>
+        <div class="episode-row">
+          <div class="episode"><img src="assets/haeeqat.jpg" alt="Haqeeqat"></div>
+          <div class="episode"><img src="assets/lennys2.jpg" alt="Lenny's Podcast"></div>
+          <div class="episode"><img src="assets/morgan.jpg" alt="Morgan Housel Podcast"></div>
+          <div class="episode"><img src="assets/episode173.jpg" alt="Episode 173"></div>
+          <div class="episode"><img src="assets/desivc_podcast.jpg" alt="Desi VC Podcast"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="music-bar">
+      <div class="song-info">
+        <img src="assets/song.jpg" alt="Tune Jo Na Kaha">
+        <div class="text">
+          <div class="title">Tune Jo Na Kaha</div>
+          <div class="artist">Pritam, Mohit Chauhan, Sandeep Shrivastava</div>
+        </div>
+      </div>
+
+      <div class="controls-row">
+        <div class="controls">
+          <button id="shuffle">🔁</button>
+          <button id="prev">⏮️</button>
+          <button id="play">▶️</button>
+          <button id="next">⏭️</button>
+          <button id="like">💖</button>
+        </div>
+        <div class="timeline">
+          <span id="current-time">0:00</span>
+          <input type="range" id="progress" value="0" min="0" max="100">
+          <span id="duration">5:10</span>
+        </div>
+        <button id="volume">🔉</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="home.js"></script>
+</body>
+</html>
