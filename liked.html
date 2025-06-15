@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VDCL - Liked Songs</title>
+  <link rel="stylesheet" href="liked.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+        <h1 class="logo">AIMuse</h1>
+      <nav>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="search.html">Search</a></li>
+          <li><a href="library.html">Your Library</a></li>
+          <li><a href="create.html">Create Playlist</a></li>
+          <li class="active"><a href="#">Liked Songs</a></li>
+          <li><a href="episodes.html">Your Episodes</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <input type="text" id="search" placeholder="Search in liked songs..." />
+        <div class="user-area">
+          <div class="user">TLTV ▾</div>
+        </div>
+      </header>
+
+      <section class="liked-section">
+        <h2>Liked Songs</h2>
+        <div class="songs-list" id="songsList">
+          
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="liked.js"></script>
+</body>
+</html>
