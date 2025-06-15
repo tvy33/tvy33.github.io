@@ -1,3 +1,5 @@
+/* signup.css */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -7,48 +9,57 @@ body {
 .signup-container {
   width: 100%;
   max-width: 400px;
-  margin: 60px auto;
+  margin: 40px auto;           /* Giảm margin-top */
+  padding: 20px 20px 30px;     /* Giảm padding-top */
   background-color: white;
-  padding: 40px;
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-.logo {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 15px;
+.signup-container .logo {
+  width: 250px;                /* Kích thước logo */
+  height: 150px;
+  margin: -10px auto 10px;     /* Kéo logo lên sát khung, cách dưới 10px */
+  background: url('logo.png') no-repeat center top;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
 }
 
+/* Tiêu đề */
 .title {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 
+/* Form */
 form {
   text-align: left;
 }
-
 form label {
   display: block;
   margin-top: 15px;
-  margin-bottom: 5px;
   font-size: 0.9rem;
 }
-
-form input[type=\"text\"], form input[type=\"password\"] {
+form input[type="text"],
+form input[type="password"] {
   width: 100%;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
+/* Checkbox */
 .options {
   margin-top: 15px;
   font-size: 0.85rem;
 }
 
+/* Nút Sign Up */
 .btn.signup {
   margin-top: 20px;
   width: 100%;
@@ -58,5 +69,6 @@ form input[type=\"text\"], form input[type=\"password\"] {
   border: none;
   border-radius: 25px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
 }
