@@ -93,3 +93,17 @@ window.addEventListener('DOMContentLoaded', () => {
     return `${m}:${s < 10 ? '0' : ''}${s}`;
   }
 });
+// --- dropdown cho nút user ---
+  const userBtn  = document.getElementById('userBtn');
+  const userMenu = document.getElementById('userMenu');
+
+// click vào TLTV thì bật/tắt menu
+  userBtn.addEventListener('click', e => {
+    e.stopPropagation();      // ngăn event nổi bọt lên document
+    userMenu.classList.toggle('show');
+});
+
+// click ra ngoài thì đóng menu
+  document.addEventListener('click', () => {
+    userMenu.classList.remove('show');
+});
