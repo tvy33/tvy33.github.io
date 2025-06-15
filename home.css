@@ -1,4 +1,8 @@
-/* home.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -10,7 +14,10 @@ body {
 .player-layout {
   display: grid;
   grid-template-columns: 230px 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows:
+    auto  /* header */
+    1fr   /* content */
+    auto; /* footer */
   grid-template-areas:
     "sidebar header"
     "sidebar content"
@@ -18,7 +25,6 @@ body {
   height: 100%;
 }
 
-/* Sidebar */
 .sidebar {
   grid-area: sidebar;
   background-color: #7b8fa1;
@@ -27,13 +33,11 @@ body {
   overflow-y: auto;
 }
 
-/* Logo as image */
 .sidebar .logo {
-  /* Adjust these values to change logo size */
-  width: 250px; /* Change width as needed */
-  height: 150px; /* Change height as needed */
-  margin-left: -10px; /* move left */
-  margin-top: -38px; /* move up */
+  width: 250px;
+  height: 150px;
+  margin-left: -10px;
+  margin-top: -38px;
   margin-bottom: 30px;
   background: url('logo.png') no-repeat left top;
   background-size: contain;
@@ -51,16 +55,27 @@ body {
 .sidebar li,
 .genres li {
   margin: 12px 0;
-  cursor: pointer;
   transition: color 0.3s;
 }
 
-.sidebar li:hover,
-.genres li:hover {
+.sidebar li a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar li a:visited {
+  color: white;
+}
+
+.sidebar li:hover a,
+.sidebar li a:hover {
   color: #ffdd57;
 }
 
-/* Header */
+.sidebar li.active a {
+  color: #ffdd57;
+}
+
 .header {
   grid-area: header;
   display: flex;
@@ -121,7 +136,6 @@ body {
   cursor: pointer;
 }
 
-/* Main Content */
 .main-area {
   grid-area: content;
   padding: 20px;
@@ -187,13 +201,12 @@ body {
   object-fit: cover;
 }
 
-/* Footer Player Bar */
 .music-bar {
   grid-area: footer;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color:  #27374d;
+  background-color: #27374d;
   color: white;
   padding: 10px 30px;
 }
@@ -262,4 +275,12 @@ body {
   font-size: 1.4rem;
   cursor: pointer;
   color: white;
+}
+
+#like {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s;
+}
+#like.liked {
+  color: #e0245e;
 }
