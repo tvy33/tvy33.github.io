@@ -1,33 +1,26 @@
-// home.js
-// Audio player controls: play/pause toggle, progress bar, and volume mute
+window.addEventListener('DOMContentLoaded', () => {
+  const audio = document.getElementById('audio-player');
+  const titleEl = document.querySelector('.song-info .title');
+  const artistEl = document.querySelector('.song-info .artist');
+  const coverEl  = document.querySelector('.song-info img');
+  const playBtn  = document.getElementById('play');
 
-document.addEventListener('DOMContentLoaded', () => {
-  // Create audio instance and set source to your MP3 file
-  const audio = new Audio('dapmocuoctinh.mp3');
-  audio.preload = 'metadata';
-
-  // Get DOM elements
-  const playBtn = document.getElementById('play');
-  const progress = document.getElementById('progress');
-  const currentTimeEl = document.getElementById('current-time');
-  const durationEl = document.getElementById('duration');
-  const volumeBtn = document.getElementById('volume');
-
-  // When metadata is loaded, set duration
-  audio.addEventListener('loadedmetadata', () => {
-    const dur = Math.floor(audio.duration);
-    progress.max = dur;
-    durationEl.textContent = formatTime(dur);
+  // Gán click cho từng card quick-access qua data-attributes
+  document.querySelectorAll('.quick-access .card').forEach(card => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', () => {
+      const { src, cover, title, artist } = card.dataset;
+      audio.src = src;
+      coverEl.src = cover;
+      coverEl.alt = title;
+      titleEl.textContent = title;
+      artistEl.textContent = artist;
+      audio.play();
+      playBtn.textContent = '⏸️';
+    });
   });
 
-  // Update progress and current time as audio plays
-  audio.addEventListener('timeupdate', () => {
-    const ct = Math.floor(audio.currentTime);
-    progress.value = ct;
-    currentTimeEl.textContent = formatTime(ct);
-  });
-
-  // Play/pause toggle
+  // Play / Pause toggle
   playBtn.addEventListener('click', () => {
     if (audio.paused) {
       audio.play();
@@ -38,21 +31,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Seek when user moves the progress slider
+  // Timeline & time display
+  const progress      = document.getElementById('progress');
+  const currentTimeEl = document.getElementById('current-time');
+  const durationEl    = document.getElementById('duration');
+
+  audio.addEventListener('loadedmetadata', () => {
+    progress.max = Math.floor(audio.duration);
+    durationEl.textContent = formatTime(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    progress.value = Math.floor(audio.currentTime);
+    currentTimeEl.textContent = formatTime(audio.currentTime);
+  });
+
   progress.addEventListener('input', () => {
     audio.currentTime = progress.value;
   });
 
-  // Mute/unmute toggle
-  volumeBtn.addEventListener('click', () => {
-    audio.muted = !audio.muted;
-    volumeBtn.textContent = audio.muted ? '🔇' : '🔉';
-  });
-
-  // Helper: format seconds -> mm:ss
   function formatTime(sec) {
     const m = Math.floor(sec / 60);
-    const s = Math.floor(sec % 60).toString().padStart(2, '0');
-    return `${m}:${s}`;
+    const s = Math.floor(sec % 60);
+    return `${m}:${s < 10 ? '0' : ''}${s}`;
   }
 });
