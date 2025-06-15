@@ -284,3 +284,50 @@ body {
 #like.liked {
   color: #e0245e;
 }
+/* ---- dropdown user-menu ---- */
+.user-area {
+  position: relative;  /* để menu con đặt tuyệt đối */
+}
+
+.user-menu {
+  position: absolute;
+  top: 110%;           /* chút dưới nút TLTV */
+  right: 0;
+  width: 200px;
+  background: #282828;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  display: none;       /* ẩn mặc định */
+  z-index: 10;
+}
+
+.user-menu.show {
+  display: block;
+}
+
+.user-menu li + li {
+  margin-top: 4px;
+}
+
+.user-menu a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.2s;
+}
+
+.user-menu a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.icon-external {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
