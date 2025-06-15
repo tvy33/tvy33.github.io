@@ -40,16 +40,6 @@
     </div>
   </div>
 
-  <script>
-    document.querySelector('.toggle').addEventListener('click', e => {
-      const pw = e.target.previousElementSibling;
-      pw.type = pw.type === 'password' ? 'text' : 'password';
-    });
-
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      window.location.href = 'home.html';
-    });
-  </script>
+  <script src="login.js"></script>
 </body>
 </html>
