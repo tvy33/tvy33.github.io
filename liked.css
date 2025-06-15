@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f5f8;
+  height: 100vh;
+  display: flex;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #7b8fa1;
+  color: white;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar .logo {
+  width: 250px;
+  height: 150px;
+  margin-left: -10px;
+  margin-top: -38px;
+  margin-bottom: 30px;
+  background: url('logo.png') no-repeat left top;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+.sidebar ul,
+.genres ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.sidebar li,
+.genres li {
+  margin: 12px 0;
+  transition: color 0.3s;
+}
+
+.sidebar li a {
+  color: white;
+  text-decoration: none;
+}
+/* Giữ trắng cả visited */
+.sidebar li a:visited {
+  color: white;
+}
+/* Khi hover chuyển vàng */
+.sidebar li a:hover {
+  color: #ffdd57;
+}
+.sidebar li:hover,
+.genres li:hover {
+  color: #ffdd57;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header #search {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
+
+.user-area {
+  margin-left: 20px;
+}
+.user-area .user {
+  background-color: #222;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.liked-section h2 {
+  margin-bottom: 15px;
+  color: #27374d;
+}
+
+.songs-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+  gap: 15px;
+}
+
+.song-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.song-card:hover {
+  transform: translateY(-3px);
+}
+.song-cover {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+.song-info {
+  padding: 10px;
+}
+.song-info .title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.song-info .artist {
+  font-size: 0.85rem;
+  color: #555;
+}
