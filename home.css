@@ -65,7 +65,7 @@ body {
   grid-area: header;
   display: flex;
   align-items: center;
-  background-color: #d22e2e;
+  background-color: #27374d;
   padding: 10px 20px;
   color: white;
 }
@@ -108,7 +108,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   font-size: 0.9rem;
-  color: #d22e2e;
+  color: #27374d;
 }
 
 .user {
@@ -193,7 +193,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #d22e2e;
+  background-color:  #27374d;
   color: white;
   padding: 10px 30px;
 }
