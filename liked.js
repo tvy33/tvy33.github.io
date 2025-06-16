@@ -1,40 +1,47 @@
-// liked.js
 window.addEventListener('DOMContentLoaded', () => {
-  const listEl      = document.getElementById('songsList');
+  const tbody       = document.getElementById('songsList');
   const searchInput = document.getElementById('search');
-  // Đọc mảng liked songs
   const liked       = JSON.parse(localStorage.getItem('vdcl_liked') || '[]');
 
-  // Hàm render danh sách bài
   function renderSongs(songs) {
-    listEl.innerHTML = '';
+    tbody.innerHTML = '';
     if (!songs.length) {
-      listEl.innerHTML = '<p>No liked songs found.</p>';
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td colspan="4" style="text-align:center; padding:20px; color:#777;">
+                        No liked songs found.
+                      </td>`;
+      tbody.appendChild(tr);
       return;
     }
-    songs.forEach(item => {
-      const card = document.createElement('div');
-      card.className = 'song-card';
-      card.innerHTML = `
-        <img src="${item.cover}" alt="${item.title}" class="song-cover">
-        <div class="song-info">
-          <div class="title">${item.title}</div>
-          <div class="artist">${item.artist}</div>
-        </div>
+
+    songs.forEach((item, i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td class="cover-cell">
+          <div class="song-title-wrapper">
+            <img src="${item.cover}" alt="${item.title}" />
+            <div class="info">
+              <div class="title">${item.title}</div>
+              <div class="artist">${item.artist}</div>
+            </div>
+          </div>
+        </td>
+        <td>${item.album || ''}</td>
+        <td>${item.duration || ''}</td>
       `;
-      // Khi click → lưu vào session + về home
-      card.addEventListener('click', () => {
+      tr.addEventListener('click', () => {
         sessionStorage.setItem('vdcl_current', JSON.stringify(item));
         window.location.href = 'home.html';
       });
-      listEl.appendChild(card);
+      tbody.appendChild(tr);
     });
   }
 
-  // 1) Render toàn bộ lần đầu
+  // Render lần đầu
   renderSongs(liked);
 
-  // 2) Filter theo search
+  // Search filter
   searchInput.addEventListener('input', e => {
     const q = e.target.value.toLowerCase();
     const filtered = liked.filter(item =>
