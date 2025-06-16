@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Playlist View - Music App</title>
+  <link rel="stylesheet" href="playlist.css">
+</head>
+<body>
+  <!-- Playlist Header -->
+  <header class="playlist-header">
+    <img src="imgplaylist/cover.jpg" alt="Playlist Cover" class="cover">
+    <div class="info">
+      <h1>Chill Vibes</h1>
+      <p>A relaxing playlist of mellow tunes to ease your day.</p>
+      <button class="play-button">Play</button>
+    </div>
+  </header>
+
+  <!-- Song List -->
+  <section class="song-list">
+    <div class="song" onclick="playSong('Let It Be - The Beatles')">
+      <span>Let It Be</span>
+      <span class="artist">The Beatles</span>
+    </div>
+    <div class="song" onclick="playSong('Someone Like You - Adele')">
+      <span>Someone Like You</span>
+      <span class="artist">Adele</span>
+    </div>
+    <div class="song" onclick="playSong('Shallow - Lady Gaga & Bradley Cooper')">
+      <span>Shallow</span>
+      <span class="artist">Lady Gaga & Bradley Cooper</span>
+    </div>
+    <div class="song" onclick="playSong('Drivers License - Olivia Rodrigo')">
+      <span>Drivers License</span>
+      <span class="artist">Olivia Rodrigo</span>
+    </div>
+  </section>
+
+  <!-- Lyrics Display -->
+  <section class="lyrics-box">
+    <h3>Lyrics</h3>
+    <pre id="lyricsDisplay">Select a song to see lyrics.</pre>
+  </section>
+
+  <script src="playlist.js"></script>
+</body>
+</html>
