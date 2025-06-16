@@ -286,12 +286,12 @@ body {
 }
 /* ---- dropdown user-menu ---- */
 .user-area {
-  position: relative;  /* để menu con đặt tuyệt đối */
+  position: relative;  
 }
 
 .user-menu {
   position: absolute;
-  top: 110%;           /* chút dưới nút TLTV */
+  top: 110%;           
   right: 0;
   width: 200px;
   background: #282828;
