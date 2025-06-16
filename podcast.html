@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Podcast</title>
+  <link rel="stylesheet" href="podcast.css" />
+</head>
+<body>
+  <div class="podcast-container">
+    <header class="podcast-header">
+      <img src="imgpodcast/podcast-cover.jpg" alt="Podcast Cover" class="cover-img">
+      <div class="podcast-info">
+        <h1>Daily Insights</h1>
+        <p>By Mindful Voices</p>
+        <button class="play-btn">▶ Play Latest Episode</button>
+      </div>
+    </header>
+
+    <section class="episode-list">
+      <h2>Episodes</h2>
+      <div class="episode" onclick="playEpisode('Morning Boost')">
+        <h3>Morning Boost</h3>
+        <p>10 mins · Start your day with motivation</p>
+      </div>
+      <div class="episode" onclick="playEpisode('Evening Calm')">
+        <h3>Evening Calm</h3>
+        <p>15 mins · Relax before sleep</p>
+      </div>
+      <div class="episode" onclick="playEpisode('Focus Time')">
+        <h3>Focus Time</h3>
+        <p>12 mins · Stay sharp and productive</p>
+      </div>
+    </section>
+
+    <section class="player">
+      <h3>Now Playing:</h3>
+      <p id="nowPlaying">None</p>
+    </section>
+  </div>
+
+  <script src="podcast.js"></script>
+</body>
+</html>
