@@ -1,37 +1,32 @@
-/* home.css */
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: Arial, sans-serif;
   background-color: #f3f5f8;
   height: 100vh;
   overflow: hidden;
 }
 
-.player-layout {
-  display: grid;
-  grid-template-columns: 230px 1fr;
-  grid-template-rows: auto 1fr auto;
-  grid-template-areas:
-    "sidebar header"
-    "sidebar content"
-    "sidebar footer";
+.container {
+  display: flex;
   height: 100%;
 }
 
-/* Sidebar */
 .sidebar {
-  grid-area: sidebar;
+  width: 230px;
   background-color: #7b8fa1;
   color: white;
   padding: 20px;
   overflow-y: auto;
 }
 
-/* Logo as image */
 .sidebar .logo {
   width: 250px;
   height: 150px;
-  /* move logo slightly up and left to align */
   margin-left: -10px;
   margin-top: -38px;
   margin-bottom: 30px;
@@ -41,96 +36,119 @@ body {
   overflow: hidden;
 }
 
-.sidebar ul,
-.genres ul {
+.sidebar ul {
   list-style: none;
   padding: 0;
-  margin-bottom: 20px;
 }
 
-.sidebar li,
-.genres li {
-  margin: 12px 0;
+.sidebar li {
+  margin: 15px 0;
+  opacity: 0.9;
   cursor: pointer;
   transition: color 0.3s;
 }
 
-.sidebar li:hover,
-.genres li:hover {
+.sidebar li:hover {
   color: #ffdd57;
 }
 
-/* Header */
+.sidebar li.liked {
+  color: #ff4d6d;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f3f5f8;
+}
+
 .header {
-  grid-area: header;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: #27374d;
   padding: 10px 20px;
-  color: white;
+  border-radius: 6px;
+  margin-bottom: 30px;
 }
 
-.header .nav-buttons {
-  display: flex;
-  gap: 8px;
-}
-
-.nav-btn {
-  background: white;
+#search {
+  padding: 10px;
+  width: 60%;
   border: none;
-  border-radius: 4px;
-  padding: 6px 10px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.header .search {
-  flex: 1;
-  margin: 0 20px;
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: none;
+  border-radius: 25px;
   outline: none;
-  font-size: 1rem;
 }
 
-.user-area {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.btn-outline,
+.btn-solid {
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
 }
 
-.premium {
+.btn-outline {
   background-color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 6px 16px;
-  font-weight: bold;
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: #d22e2e;
+  color: #27374d;
+  border: 1px solid #27374d;
 }
 
-.user {
-  background-color: #222;
+.btn-solid {
+  background-color: #27374d;
   color: white;
-  border-radius: 30px;
-  padding: 6px 16px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  cursor: pointer;
+  border: none;
 }
 
-/* Main Content */
-.main-area {
-  grid-area: content;
-  padding: 20px;
-  overflow-y: auto;
+.section {
+  margin-bottom: 40px;
 }
 
-.greeting h2 {
-  margin: 0;
-  font-size: 1.5rem;
+.section h2 {
+  margin-bottom: 15px;
+  color: #27374d;
+}
+
+.playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.playlist-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.playlist-card:hover {
+  transform: translateY(-5px);
+}
+
+.playlist-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.playlist-card .info {
+  padding: 10px;
+}
+
+.playlist-card .info h4 {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #27374d;
+}
+
+.playlist-card .info p {
+  font-size: 0.85rem;
+  color: #555;
 }
 
 .quick-access {
@@ -140,7 +158,7 @@ body {
   margin: 15px 0 30px;
 }
 
-.card {
+.quick-access .card {
   background-color: #4f6675;
   color: white;
   border-radius: 12px;
@@ -151,17 +169,18 @@ body {
   align-items: center;
 }
 
-.card img {
+.quick-access .card img {
   width: 60px;
   height: 60px;
   object-fit: cover;
   margin-right: 10px;
 }
 
-.card span {
+.quick-access .card span {
   font-weight: bold;
 }
 
+/* === Recommendations & Episodes === */
 .recommendations h3 {
   margin: 0 0 15px;
   font-size: 1.2rem;
@@ -187,9 +206,8 @@ body {
   object-fit: cover;
 }
 
-/* Footer Player Bar */
+/* === Footer Player Bar === */
 .music-bar {
-  grid-area: footer;
   display: flex;
   align-items: center;
   justify-content: space-between;
