@@ -31,13 +31,25 @@
       </header>
 
       <section class="liked-section">
-        <h2>Liked Songs</h2>
-        <div class="songs-list" id="songsList">
-          
-        </div>
-      </section>
-    </main>
+        <section class="liked-section">
+  <h2>Liked Songs</h2>
+
+  <!-- List table -->
+  <div class="songs-container">
+    <table class="songs-list" id="songsTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Album</th>
+          <th><span class="icon-time"></span></th>
+        </tr>
+      </thead>
+      <tbody id="songsList">
+      </tbody>
+    </table>
   </div>
+</section>
 
   <script src="liked.js"></script>
 </body>
