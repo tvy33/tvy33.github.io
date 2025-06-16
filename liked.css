@@ -16,6 +16,7 @@ body {
 }
 
 .sidebar {
+  width: 230px;
   grid-area: sidebar;
   background-color: #7b8fa1;
   color: white;
