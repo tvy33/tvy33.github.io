@@ -2,7 +2,7 @@ const focusPlaylists = [
   {
     title: 'Peaceful Piano',
     desc: 'Relax and indulge with beautiful piano pieces.',
-    img: 'assets/piano.png'
+    img: 'imghome/piano.png'
   },
   {
     title: 'Deep Focus',
@@ -12,7 +12,7 @@ const focusPlaylists = [
   {
     title: 'Instrumental Study',
     desc: 'Soft study music in the background.',
-    img: 'assets/study.jpg'
+    img: 'imghome/swm.jpg'
   }
 ];
 
@@ -20,7 +20,7 @@ const vdlcPlaylists = [
   {
     title: 'Today\'s Top Hits',
     desc: 'Ed Sheeran is on top of the world.',
-    img: 'assets/tophits.jpg'
+    img: 'imghome/ptg.jpg'
   },
   {
     title: 'Rap GOAT!!!',
@@ -38,7 +38,7 @@ function renderPlaylists(containerId, playlists) {
   const container = document.getElementById(containerId);
   playlists.forEach(p => {
     const card = document.createElement('div');
-    card.className = 'card';
+    card.className = 'playlist-card';
     card.innerHTML = `
       <img src=\"${p.img}\" alt=\"${p.title}\">
       <div class=\"info\">
