@@ -102,7 +102,7 @@ body {
   margin-bottom: 15px;
   color: #27374d;
 }
-
+/*
 .songs-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
@@ -117,6 +117,81 @@ body {
   overflow: hidden;
   cursor: pointer;
   transition: 0.2s;
+}
+*/
+.songs-container {
+  overflow-x: auto;
+}
+
+.songs-list {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* đảm bảo scroll nếu bé màn */
+}
+
+.songs-list thead {
+  background: #eef1f6;
+}
+
+.songs-list th,
+.songs-list td {
+  padding: 12px 8px;
+  text-align: left;
+  font-size: 0.95rem;
+  color: #27374d;
+}
+
+.songs-list thead th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #555;
+  border-bottom: 2px solid #ccc;
+}
+
+.songs-list tbody tr {
+  border-bottom: 1px solid #e2e5eb;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.songs-list tbody tr:hover {
+  background: #f0f4fa;
+}
+
+.cover-cell img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.song-title-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.song-title-wrapper .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-title-wrapper .info .title {
+  font-weight: 500;
+}
+
+.song-title-wrapper .info .artist {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 2px;
+}
+
+.icon-time::before {
+  content: "\23F1";  /* Unicode stopwatch, thay bằng icon SVG nếu muốn */
+  font-size: 1.1rem;
+  color: #555;
 }
 .song-card:hover {
   transform: translateY(-3px);
