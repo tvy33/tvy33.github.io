@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #121212;
+  color: #ffffff;
+}
+
+.playlist-header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background: #1db954;
+}
+
+.cover {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  margin-right: 2rem;
+}
+
+.info h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.info p {
+  margin: 0.5rem 0;
+  color: #e0e0e0;
+}
+
+.play-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: #ffffff;
+  color: #1db954;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.song-list {
+  padding: 1rem 2rem;
+}
+
+.song {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #2a2a2a;
+  cursor: pointer;
+}
+
+.song:hover {
+  background: #1a1a1a;
+}
+
+.artist {
+  color: #aaaaaa;
+}
+
+.lyrics-box {
+  padding: 2rem;
+  background: #1e1e1e;
+  border-top: 1px solid #333;
+}
+
+.lyrics-box h3 {
+  margin-top: 0;
+}
+
+#lyricsDisplay {
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+  color: #dddddd;
+}
