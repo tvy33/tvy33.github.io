@@ -364,9 +364,6 @@ body {
 .sidebar ul li.home::before {
   background-image: url('imghome/homee.png');
 }
-.sidebar ul li.search::before {
-  background-image: url('imghome/search.png');
-}
 .sidebar ul li.library::before {
   background-image: url('imghome/library.png');
 }
