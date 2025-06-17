@@ -1,4 +1,3 @@
-// home.js
 window.addEventListener('DOMContentLoaded', () => {
   const audio       = document.getElementById('audio-player');
   const titleEl     = document.querySelector('.song-info .title');
