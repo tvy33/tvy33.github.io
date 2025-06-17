@@ -33,11 +33,12 @@ html, body {
 }
 
 .sidebar .logo {
-  width: 100%;
-  max-width: 190px;          /* 230px - 2*20px padding */
+  width: 250px;
   height: 150px;
-  margin: 0 0 30px;
-  background: url('logo.png') no-repeat center top;
+  margin-left: -10px;
+  margin-top: -38px;
+  margin-bottom: 30px;
+  background: url('logo.png') no-repeat left top;
   background-size: contain;
   text-indent: -9999px;
   overflow: hidden;
