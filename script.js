@@ -7,7 +7,7 @@ const focusPlaylists = [
   {
     title: 'Deep Focus',
     desc: 'Keep calm and focus with ambient and post-',
-    img: 'assets/deepfocus.jpg'
+    img: 'imghome/foc.jpg'
   },
   {
     title: 'Instrumental Study',
@@ -30,7 +30,7 @@ const vdlcPlaylists = [
   {
     title: 'Road To Glory',
     desc: 'The biggest songs of victory.',
-    img: 'assets/glory.jpg'
+    img: 'imghome/road.jpg'
   }
 ];
 
