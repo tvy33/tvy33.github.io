@@ -331,3 +331,52 @@ body {
   font-size: 0.8rem;
   opacity: 0.7;
 }
+.sidebar ul li.nav-item {
+  position: relative;
+  padding-left: 28px;    /* chừa chỗ cho icon */
+  margin: 12px 0;
+  cursor: pointer;
+  transition: color .3s;
+}
+
+.sidebar ul li.nav-item:hover {
+  color: #ffdd57;       /* vàng khi hover */
+}
+
+/* pseudo-element thêm icon */
+.sidebar ul li.nav-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* định nghĩa icon cho từng mục */
+.sidebar ul li.home::before {
+  background-image: url('imghome/homee.png');
+}
+.sidebar ul li.search::before {
+  background-image: url('imghome/search.png');
+}
+.sidebar ul li.library::before {
+  background-image: url('assets/library.svg');
+}
+.sidebar ul li.create::before {
+  background-image: url('assets/playlist-add.svg');
+}
+.sidebar ul li.liked::before {
+  background-image: url('assets/heart-gradient.svg');
+}
+.sidebar ul li.episodes::before {
+  background-image: url('assets/bookmark.svg');
+}
+
+/* nếu muốn đánh dấu mục đang active */
+.sidebar ul li.active {
+  color: #1db954;
+}
