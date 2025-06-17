@@ -1,225 +1,134 @@
-/* liked.css */
 
-/* === Reset & Base === */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+* { 
+  box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
   font-family: Arial, sans-serif;
   background: #f3f5f8;
   height: 100vh;
-  overflow-x: hidden;        /* ẩn cuộn ngang toàn trang */
+  overflow-x: hidden;
 }
-
-/* === Container chính === */
 .container {
   display: flex;
   width: 100%;
-  overflow-x: hidden;        /* ẩn cuộn ngang */
+  overflow-x: hidden;
 }
 
-/* === Sidebar === */
 .sidebar {
   width: 230px;
-  background-color: #27374d;
+  background: #27374d;
   color: white;
   padding: 20px;
   height: 100vh;
-  overflow-y: auto;          /* chỉ cho scroll dọc */
-  overflow-x: hidden;        /* ẩn scroll ngang */
+  overflow-y: auto;
 }
-
 .sidebar .logo {
-  width: 250px;
+  width: 100%;
+  max-width: 190px;
   height: 150px;
-  margin-left: -10px;
-  margin-top: -38px;
-  margin-bottom: 30px;
-  background: url('logo.png') no-repeat left top;
+  margin: 0 0 30px;
+  background: url('logo.png') no-repeat center top;
   background-size: contain;
   text-indent: -9999px;
-  overflow: hidden;
 }
-
 .sidebar nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  margin: 0; padding: 0;
 }
-
-/* Divider giữa các li, trừ mục cuối */
 .sidebar nav ul li {
   position: relative;
-  padding: 16px 0 16px 28px; /* chừa chỗ cho icon */
-  margin: 0;
+  padding: 16px 0 16px 28px;
   border-bottom: 1px solid rgba(255,255,255,0.2);
-  transition: color 0.3s;
+  transition: color .3s;
 }
-.sidebar nav ul li:last-child {
-  border-bottom: none;
-}
-
+.sidebar nav ul li:last-child { border-bottom: none; }
 .sidebar nav ul li a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  transition: color 0.3s;
+  display: block; color: white; text-decoration: none;
+  transition: color .3s;
 }
+.sidebar nav ul li.active a,
+.sidebar nav ul li a:hover { color: #ffdd57; }
 
-.sidebar nav ul li a:visited {
-  color: white;
-}
-
-.sidebar nav ul li a:hover,
-.sidebar nav ul li.active a {
-  color: #ffdd57;
-}
-
-/* Icon trước mỗi link */
+/* Icon trước each link */
 .sidebar nav ul li a::before {
   content: "";
   position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
+  left: 0; top: 50%; transform: translateY(-50%);
+  width: 16px; height: 16px;
   background-size: contain;
   background-repeat: no-repeat;
 }
-
-/* Icon riêng từng mục (đường dẫn file phải đúng hoa-thường) */
-.sidebar nav ul li a[href="home.html"]::before {
-  background-image: url('imghome/homee.png');
-}
-.sidebar nav ul li a[href="search.html"]::before {
-  background-image: url('imghome/search.png');
-}
-.sidebar nav ul li a[href="library.html"]::before {
-  background-image: url('imghome/library.png');
-}
-.sidebar nav ul li a[href="playlist.html"]::before {
-  background-image: url('imghome/create.png');
-}
-.sidebar nav ul li a[href="liked.html"]::before {
-  background-image: url('imghome/likesong.png');
-}
-.sidebar nav ul li a[href="episodes.html"]::before {
-  background-image: url('assets/bookmark.svg');
-}
+.sidebar nav ul li a[href="home.html"]::before     { background-image: url('imghome/homee.png'); }
+.sidebar nav ul li a[href="search.html"]::before   { background-image: url('imghome/search.png'); }
+.sidebar nav ul li a[href="library.html"]::before  { background-image: url('imghome/library.png'); }
+.sidebar nav ul li a[href="playlist.html"]::before { background-image: url('imghome/create.png'); }
+.sidebar nav ul li a[href="liked.html"]::before    { background-image: url('imghome/likesong.png'); }
+.sidebar nav ul li a[href="episodes.html"]::before { background-image: url('assets/bookmark.svg'); }
 
 /* === Main Content === */
 .main-content {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto;          /* scroll dọc */
-  overflow-x: hidden;        /* ẩn scroll ngang */
+  flex: 1; padding: 20px;
+  overflow-y: auto; overflow-x: hidden;
 }
-
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 20px;
 }
-
 .header #search {
-  flex: 1;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
+  flex: 1; padding: 10px; border-radius: 20px; border: 1px solid #ccc;
   margin-right: 20px;
 }
 
+/* User-area & dropdown */
+.user-area { position: relative; display: flex; align-items: center; gap: 12px; }
+.user-area .premium {
+  background: white; border: none; border-radius: 30px;
+  padding: 6px 16px; font-weight: bold; cursor: pointer; color: #27374d;
+}
 .user-area .user {
-  background-color: #222;
-  color: white;
-  padding: 6px 16px;
-  border-radius: 30px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  cursor: pointer;
+  background: #222; color: white; border-radius: 30px;
+  padding: 6px 16px; font-weight: bold; cursor: pointer;
 }
-
-/* === Liked Songs Table === */
-.liked-section h2 {
-  margin-bottom: 15px;
-  color: #27374d;
+.user-menu {
+  position: absolute; top: 110%; right: 0;
+  width: 200px; background: #282828; border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  list-style: none; padding: 8px 0; margin: 0; display: none; z-index: 10;
 }
-
-.songs-container {
-  overflow-x: hidden;        /* ẩn scroll ngang */
+.user-menu.show { display: block; }
+.user-menu li + li { margin-top: 4px; }
+.user-menu a {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 16px; color: white; text-decoration: none;
+  transition: background .2s;
 }
+.user-menu a:hover { background: rgba(255,255,255,0.1); }
+.icon-external { font-size: .8rem; opacity: .7; }
 
-.songs-list {
-  width: 100%;
-  border-collapse: collapse;
+.liked-section h2 { margin-bottom: 15px; color: #27374d; }
+.songs-container { overflow-x: hidden; }
+.songs-list { width: 100%; border-collapse: collapse; }
+.songs-list thead { background: #eef1f6; }
+.songs-list th, .songs-list td {
+  padding: 12px 8px; text-align: left; font-size: .95rem; color: #27374d;
 }
-
-.songs-list thead {
-  background: #eef1f6;
-}
-
-.songs-list th,
-.songs-list td {
-  padding: 12px 8px;
-  text-align: left;
-  font-size: 0.95rem;
-  color: #27374d;
-}
-
 .songs-list thead th {
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  color: #555;
+  font-weight: 600; text-transform: uppercase; font-size: .8rem; color: #555;
   border-bottom: 2px solid #ccc;
 }
-
 .songs-list tbody tr {
-  border-bottom: 1px solid #e2e5eb;
-  transition: background 0.2s;
-  cursor: pointer;
+  border-bottom: 1px solid #e2e5eb; transition: background .2s; cursor: pointer;
 }
-
-.songs-list tbody tr:hover {
-  background: #f0f4fa;
-}
-
+.songs-list tbody tr:hover { background: #f0f4fa; }
 .cover-cell img {
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-right: 10px;
-  vertical-align: middle;
+  width: 40px; height: 40px; object-fit: cover; border-radius: 4px;
+  margin-right: 10px; vertical-align: middle;
 }
-
-.song-title-wrapper {
-  display: flex;
-  align-items: center;
-}
-
-.song-title-wrapper .info {
-  display: flex;
-  flex-direction: column;
-}
-
-.song-title-wrapper .info .title {
-  font-weight: 500;
-}
-
+.song-title-wrapper { display: flex; align-items: center; }
+.song-title-wrapper .info { display: flex; flex-direction: column; }
+.song-title-wrapper .info .title { font-weight: 500; }
 .song-title-wrapper .info .artist {
-  font-size: 0.85rem;
-  color: #555;
-  margin-top: 2px;
+  font-size: .85rem; color: #555; margin-top: 2px;
 }
-
 .icon-time::before {
-  content: "\23F1";
-  font-size: 1.1rem;
-  color: #555;
+  content: "\23F1"; font-size: 1.1rem; color: #555;
 }
