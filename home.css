@@ -364,7 +364,7 @@ body {
   background-image: url('imghome/search.png');
 }
 .sidebar ul li.library::before {
-  background-image: url('assets/library.svg');
+  background-image: url('imghome/library.png');
 }
 .sidebar ul li.create::before {
   background-image: url('assets/playlist-add.svg');
