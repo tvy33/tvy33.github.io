@@ -1,21 +1,23 @@
-* {
+/* === RESET & LAYOUT CHUNG === */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family: Arial, sans-serif;
   background-color: #f3f5f8;
   height: 100vh;
   overflow: hidden;
 }
-
 .container {
   display: flex;
   height: 100%;
 }
 
+/* === SIDEBAR === */
 .sidebar {
   width: 230px;
   background-color: #7b8fa1;
@@ -23,39 +25,65 @@ body {
   padding: 20px;
   overflow-y: auto;
 }
-
+/* Logo */
 .sidebar .logo {
-  width: 250px;
-  height: 150px;
-  margin-left: -10px;
-  margin-top: -38px;
-  margin-bottom: 30px;
+  text-indent: -9999px;
+  width: 250px; height: 150px;
+  margin-left: -10px; margin-top: -38px; margin-bottom: 30px;
   background: url('logo.png') no-repeat left top;
   background-size: contain;
-  text-indent: -9999px;
   overflow: hidden;
 }
 
-.sidebar ul {
+/* --- XÓA hẳn cái rule generic gây xung đột:
+   .sidebar ul li { margin:15px 0; ... }
+   từ file style.css trước đó :contentReference[oaicite:0]{index=0} */
+
+.sidebar nav ul {
   list-style: none;
-  padding: 0;
 }
-
-.sidebar li {
-  margin: 15px 0;
-  opacity: 0.9;
+.sidebar nav ul li.nav-item {
+  position: relative;
+  /* chính margin, padding: copy y xì home.css :contentReference[oaicite:1]{index=1} */
+  margin: 12px 0;
+  padding: 10px 0 10px 28px; /* padding-left:28px chừa chỗ icon */
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color .3s;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
 }
-
-.sidebar li:hover {
+.sidebar nav ul li.nav-item:last-child {
+  border-bottom: none;
+}
+.sidebar nav ul li.nav-item:hover,
+.sidebar nav ul li.nav-item.active a {
   color: #ffdd57;
 }
+/* Đưa icon vào ::before giống home.css :contentReference[oaicite:2]{index=2} */
+.sidebar nav ul li.nav-item::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 16px; height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.sidebar nav ul li.home::before    { background-image: url('imghome/homee.png'); }
+.sidebar nav ul li.library::before { background-image: url('imghome/library.png'); }
+.sidebar nav ul li.create::before  { background-image: url('imghome/create.png'); }
+.sidebar nav ul li.liked::before   { background-image: url('imghome/likesong.png'); }
+/* Nếu bạn không có bookmark.svg thì bỏ rule này hoặc đổi đường dẫn */
+.sidebar nav ul li.episodes::before{ background-image: url('imghome/bookmark.svg'); }
 
-.sidebar li.liked {
-  color: #ff4d6d;
+/* Link bên trong nav-item */
+.sidebar nav ul li.nav-item a {
+  display: block;
+  width: 100%;
+  color: white;
+  text-decoration: none;
 }
 
+/* === MAIN CONTENT === */
 .main-content {
   flex: 1;
   padding: 20px;
@@ -63,221 +91,72 @@ body {
   background-color: #f3f5f8;
 }
 
+/* === HEADER BUTTONS === */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   background-color: #27374d;
   padding: 10px 20px;
   border-radius: 6px;
   margin-bottom: 30px;
 }
-
-#search {
-  padding: 10px;
-  width: 60%;
-  border: none;
-  border-radius: 25px;
-  outline: none;
-}
-
-.btn-outline,
-.btn-solid {
+.header-buttons button {
   padding: 10px 18px;
   border-radius: 20px;
   cursor: pointer;
   font-weight: bold;
   margin-left: 10px;
 }
-
 .btn-outline {
   background-color: white;
   color: #27374d;
   border: 1px solid #27374d;
 }
-
 .btn-solid {
   background-color: #27374d;
   color: white;
   border: none;
 }
 
+/* === PLAYLIST SECTIONS === */
 .section {
   margin-bottom: 40px;
 }
-
 .section h2 {
   margin-bottom: 15px;
   color: #27374d;
 }
-
 .playlist-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
 }
-
 .playlist-card {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   overflow: hidden;
-  transition: transform 0.3s;
+  transition: transform .3s;
 }
-
 .playlist-card:hover {
   transform: translateY(-5px);
 }
-
 .playlist-card img {
   width: 100%;
   height: 120px;
   object-fit: cover;
   display: block;
 }
-
 .playlist-card .info {
   padding: 10px;
 }
-
 .playlist-card .info h4 {
   margin-bottom: 5px;
   font-size: 1rem;
   color: #27374d;
 }
-
 .playlist-card .info p {
-  font-size: 0.85rem;
+  font-size: .85rem;
   color: #555;
-}
-
-.quick-access {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin: 15px 0 30px;
-}
-
-.quick-access .card {
-  background-color: #4f6675;
-  color: white;
-  border-radius: 12px;
-  overflow: hidden;
-  width: 180px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.quick-access .card img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  margin-right: 10px;
-}
-
-.quick-access .card span {
-  font-weight: bold;
-}
-
-/* === Recommendations & Episodes === */
-.recommendations h3 {
-  margin: 0 0 15px;
-  font-size: 1.2rem;
-}
-
-.episode-row {
-  display: flex;
-  gap: 16px;
-}
-
-.episode {
-  background-color: white;
-  width: 140px;
-  height: 160px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  overflow: hidden;
-}
-
-.episode img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* === Footer Player Bar === */
-.music-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #d22e2e;
-  color: white;
-  padding: 10px 30px;
-}
-
-.song-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.song-info img {
-  width: 60px;
-  height: 60px;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-.song-info .text .title {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.song-info .text .artist {
-  font-size: 0.85rem;
-  opacity: 0.9;
-}
-
-.controls-row {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-
-.controls-row .controls {
-  display: flex;
-  gap: 10px;
-}
-
-.controls-row button {
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: white;
-}
-
-.timeline {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.timeline #current-time,
-.timeline #duration {
-  font-size: 0.8rem;
-}
-
-.timeline #progress {
-  width: 300px;
-  accent-color: white;
-}
-
-#volume {
-  background: none;
-  border: none;
-  font-size: 1.4rem;
-  cursor: pointer;
-  color: white;
 }
