@@ -49,12 +49,40 @@
               </tr>
             </thead>
             <tbody id="songsList">
+              <!-- JS sẽ render ở đây -->
             </tbody>
           </table>
         </div>
       </section>
     </main>
   </div>
+
+  <!-- ==== PLAYER BAR ==== -->
+  <footer class="music-bar" id="playerBar" style="display:none;">
+    <div class="song-info">
+      <img id="coverBar" src="" alt="cover" />
+      <div class="text">
+        <div id="titleBar" class="title"></div>
+        <div id="artistBar" class="artist"></div>
+      </div>
+    </div>
+    <div class="controls-row">
+      <div class="controls">
+        <button id="btnShuffle">🔁</button>
+        <button id="btnPrev">⏮️</button>
+        <button id="btnPlay">▶️</button>
+        <button id="btnNext">⏭️</button>
+        <button id="btnLike">❤</button>
+      </div>
+      <div class="timeline">
+        <span id="curTime">0:00</span>
+        <input type="range" id="progressBar" value="0" min="0" max="0" />
+        <span id="durTime">0:00</span>
+      </div>
+      <button id="btnVolume">🔉</button>
+    </div>
+  </footer>
+  <audio id="audio-player"></audio>
 
   <script src="liked.js"></script>
 </body>
