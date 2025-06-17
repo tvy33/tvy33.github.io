@@ -6,12 +6,13 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f3f5f8;
+  background-color: black;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden; 
 }
 
 .player-layout {
+  overflow-x: hidden; 
   display: grid;
   grid-template-columns: 230px 1fr;
   grid-template-rows:
@@ -26,8 +27,9 @@ body {
 }
 
 .sidebar {
+  width: 230px;
   grid-area: sidebar;
-  background-color: #7b8fa1;
+  background-color: #27374d;
   color: white;
   padding: 20px;
   overflow-y: auto;
@@ -80,7 +82,7 @@ body {
   grid-area: header;
   display: flex;
   align-items: center;
-  background-color: #27374d;
+  background-color: #1DB954;
   padding: 10px 20px;
   color: white;
 }
@@ -139,7 +141,8 @@ body {
 .main-area {
   grid-area: content;
   padding: 20px;
-  overflow-y: auto;
+  overflow-y: auto;      
+  overflow-x: hidden;    
 }
 
 .greeting h2 {
@@ -374,4 +377,12 @@ body {
 }
 .sidebar ul li.episodes::before {
   background-image: url('assets/bookmark.svg');
+}
+.sidebar ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.sidebar ul li:last-child {
+  border-bottom: none;
 }
