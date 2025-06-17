@@ -1,76 +1,123 @@
+/* liked.css */
+
+/* === Reset & Base === */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-body {
+
+html, body {
   font-family: Arial, sans-serif;
   background: #f3f5f8;
   height: 100vh;
-  display: flex;
+  overflow-x: hidden;        /* ẩn cuộn ngang toàn trang */
 }
 
+/* === Container chính === */
 .container {
   display: flex;
   width: 100%;
+  overflow-x: hidden;        /* ẩn cuộn ngang */
 }
 
+/* === Sidebar === */
 .sidebar {
   width: 230px;
-  grid-area: sidebar;
-  background-color: #7b8fa1;
+  background-color: #27374d;
   color: white;
   padding: 20px;
-  overflow-y: auto;
+  height: 100vh;
+  overflow-y: auto;          /* chỉ cho scroll dọc */
+  overflow-x: hidden;        /* ẩn scroll ngang */
 }
 
 .sidebar .logo {
-  width: 250px;
+  width: 100%;
+  max-width: 190px;          /* 230px - 2*20px padding */
   height: 150px;
-  margin-left: -10px;
-  margin-top: -38px;
-  margin-bottom: 30px;
-  background: url('logo.png') no-repeat left top;
+  margin: 0 0 30px;
+  background: url('logo.png') no-repeat center top;
   background-size: contain;
   text-indent: -9999px;
   overflow: hidden;
 }
 
-.sidebar ul,
-.genres ul {
+.sidebar nav ul {
   list-style: none;
   padding: 0;
-  margin-bottom: 20px;
+  margin: 0;
 }
 
-.sidebar li,
-.genres li {
-  margin: 12px 0;
+/* Divider giữa các li, trừ mục cuối */
+.sidebar nav ul li {
+  position: relative;
+  padding: 16px 0 16px 28px; /* chừa chỗ cho icon */
+  margin: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  transition: color 0.3s;
+}
+.sidebar nav ul li:last-child {
+  border-bottom: none;
+}
+
+.sidebar nav ul li a {
+  display: block;
+  color: white;
+  text-decoration: none;
   transition: color 0.3s;
 }
 
-.sidebar li a {
-  color: white;
-  text-decoration: none;
-}
-/* Giữ trắng cả visited */
-.sidebar li a:visited {
+.sidebar nav ul li a:visited {
   color: white;
 }
-/* Khi hover chuyển vàng */
-.sidebar li a:hover {
-  color: #ffdd57;
-}
-.sidebar li:hover,
-.genres li:hover {
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li.active a {
   color: #ffdd57;
 }
 
+/* Icon trước mỗi link */
+.sidebar nav ul li a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Icon riêng từng mục (đường dẫn file phải đúng hoa-thường) */
+.sidebar nav ul li a[href="home.html"]::before {
+  background-image: url('imghome/homee.png');
+}
+.sidebar nav ul li a[href="search.html"]::before {
+  background-image: url('imghome/search.png');
+}
+.sidebar nav ul li a[href="library.html"]::before {
+  background-image: url('imghome/library.png');
+}
+.sidebar nav ul li a[href="playlist.html"]::before {
+  background-image: url('imghome/create.png');
+}
+.sidebar nav ul li a[href="liked.html"]::before {
+  background-image: url('imghome/likesong.png');
+}
+.sidebar nav ul li a[href="episodes.html"]::before {
+  background-image: url('assets/bookmark.svg');
+}
+
+/* === Main Content === */
 .main-content {
   flex: 1;
   padding: 20px;
-  overflow-y: auto;
+  overflow-y: auto;          /* scroll dọc */
+  overflow-x: hidden;        /* ẩn scroll ngang */
 }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -83,11 +130,9 @@ body {
   padding: 10px;
   border-radius: 20px;
   border: 1px solid #ccc;
+  margin-right: 20px;
 }
 
-.user-area {
-  margin-left: 20px;
-}
 .user-area .user {
   background-color: #222;
   color: white;
@@ -98,35 +143,19 @@ body {
   cursor: pointer;
 }
 
+/* === Liked Songs Table === */
 .liked-section h2 {
   margin-bottom: 15px;
   color: #27374d;
 }
-/*
-.songs-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
-  gap: 15px;
-}
 
-.song-card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: flex;
-  overflow: hidden;
-  cursor: pointer;
-  transition: 0.2s;
-}
-*/
 .songs-container {
-  overflow-x: auto;
+  overflow-x: hidden;        /* ẩn scroll ngang */
 }
 
 .songs-list {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px; /* đảm bảo scroll nếu bé màn */
 }
 
 .songs-list thead {
@@ -189,26 +218,7 @@ body {
 }
 
 .icon-time::before {
-  content: "\23F1";  /* Unicode stopwatch, thay bằng icon SVG nếu muốn */
+  content: "\23F1";
   font-size: 1.1rem;
-  color: #555;
-}
-.song-card:hover {
-  transform: translateY(-3px);
-}
-.song-cover {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-}
-.song-info {
-  padding: 10px;
-}
-.song-info .title {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-.song-info .artist {
-  font-size: 0.85rem;
   color: #555;
 }
