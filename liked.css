@@ -44,7 +44,7 @@ html, body {
 }
 .sidebar nav ul li {
   position: relative;
-  padding: 16px 0 16px 28px;   /* 16px trên–dưới, 28px chừa chỗ icon */
+  padding: 16px 0 16px 28px;
   border-bottom: 1px solid rgba(255,255,255,0.2);
   transition: color .3s;
 }
@@ -60,8 +60,7 @@ html, body {
 .sidebar nav ul li a:hover {
   color: #ffdd57;
 }
-
-/* pseudo-element cho icon */
+/* Icons trước mỗi link */
 .sidebar nav ul li a::before {
   content: "";
   position: absolute;
@@ -185,7 +184,7 @@ html, body {
   content: "\23F1"; font-size: 1.1rem; color: #555;
 }
 
-/* === PLAYER BAR === */
+/* PLAYER BAR */
 .music-bar, #playerBar {
   position: fixed;
   bottom: 0;
@@ -214,9 +213,30 @@ html, body {
   display: flex; gap: 10px;
 }
 .controls-row button {
-  background: none; border: none;
-  font-size: 1.4rem; cursor: pointer; color: white;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
 }
+.controls-row button img {
+  width: 24px;
+  height: 24px;
+}
+
+#btnLike {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 4px;
+}
+/* khi có class "liked" (JS sẽ toggle) */
+#btnLike.liked {
+  color: #e0245e;
+}
+
 .timeline {
   display: flex; align-items: center; gap: 8px;
 }
