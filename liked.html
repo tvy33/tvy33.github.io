@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title> AI-Based Personalized Music Recommendation - Liked Songs</title>
+  <title>AI-Based Personalized Music Recommendation – Liked Songs</title>
   <link rel="stylesheet" href="liked.css" />
 </head>
 <body>
   <div class="container">
     <aside class="sidebar">
-        <h1 class="logo">AIMuse</h1>
+      <h1 class="logo">AIMuse</h1>
       <nav>
         <ul>
           <li><a href="home.html">Home</a></li>
-          <li><a href="search.html">Search</a></li>
           <li><a href="library.html">Your Library</a></li>
           <li><a href="playlist.html">Create Playlist</a></li>
           <li class="active"><a href="liked.html">Liked Songs</a></li>
@@ -26,30 +25,36 @@
       <header class="header">
         <input type="text" id="search" placeholder="Search in liked songs..." />
         <div class="user-area">
-          <div class="user">TLTV ▾</div>
+          <button class="premium">Premium</button>
+          <button class="user" id="userBtn">TLTV ▾</button>
+          <ul class="user-menu" id="userMenu">
+            <li><a href="#">Account <span class="icon-external">⇲</span></a></li>
+            <li><a href="#">Support <span class="icon-external">⇲</span></a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="login.html">Log out</a></li>
+          </ul>
         </div>
       </header>
 
       <section class="liked-section">
-        <section class="liked-section">
-  <h2>Liked Songs</h2>
-
-  <!-- List table -->
-  <div class="songs-container">
-    <table class="songs-list" id="songsTable">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Title</th>
-          <th>Album</th>
-          <th><span class="icon-time"></span></th>
-        </tr>
-      </thead>
-      <tbody id="songsList">
-      </tbody>
-    </table>
+        <h2>Liked Songs</h2>
+        <div class="songs-container">
+          <table class="songs-list">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Album</th>
+                <th><span class="icon-time"></span></th>
+              </tr>
+            </thead>
+            <tbody id="songsList">
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
   </div>
-</section>
 
   <script src="liked.js"></script>
 </body>
