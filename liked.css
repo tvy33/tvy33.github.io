@@ -58,7 +58,6 @@ html, body {
   background-repeat: no-repeat;
 }
 .sidebar nav ul li a[href="home.html"]::before     { background-image: url('imghome/homee.png'); }
-.sidebar nav ul li a[href="search.html"]::before   { background-image: url('imghome/search.png'); }
 .sidebar nav ul li a[href="library.html"]::before  { background-image: url('imghome/library.png'); }
 .sidebar nav ul li a[href="playlist.html"]::before { background-image: url('imghome/create.png'); }
 .sidebar nav ul li a[href="liked.html"]::before    { background-image: url('imghome/likesong.png'); }
