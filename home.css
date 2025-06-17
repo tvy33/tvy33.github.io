@@ -367,16 +367,11 @@ body {
   background-image: url('imghome/library.png');
 }
 .sidebar ul li.create::before {
-  background-image: url('assets/playlist-add.svg');
+  background-image: url('imghome/create.png');
 }
 .sidebar ul li.liked::before {
-  background-image: url('assets/heart-gradient.svg');
+  background-image: url('imghome/likesong.png');
 }
 .sidebar ul li.episodes::before {
   background-image: url('assets/bookmark.svg');
-}
-
-/* nếu muốn đánh dấu mục đang active */
-.sidebar ul li.active {
-  color: #1db954;
 }
