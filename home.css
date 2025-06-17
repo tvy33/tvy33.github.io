@@ -347,7 +347,6 @@ body {
   color: #ffdd57;       /* vàng khi hover */
 }
 
-/* pseudo-element thêm icon */
 .sidebar ul li.nav-item::before {
   content: "";
   position: absolute;
@@ -389,7 +388,6 @@ body {
   display: block;
 }
 
-/* Heart giữ nguyên text, toggle màu qua .liked */
 #like {
   color: white;
   font-size: 1.4rem;
