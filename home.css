@@ -47,15 +47,13 @@ body {
   overflow: hidden;
 }
 
-.sidebar ul,
-.genres ul {
+.sidebar ul {
   list-style: none;
   padding: 0;
   margin-bottom: 20px;
 }
 
-.sidebar li,
-.genres li {
+.sidebar li {
   margin: 12px 0;
   transition: color 0.3s;
 }
