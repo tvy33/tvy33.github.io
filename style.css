@@ -1,4 +1,3 @@
-/* === RESET & LAYOUT CHUNG === */
 *,
 *::before,
 *::after {
@@ -35,16 +34,11 @@ body {
   overflow: hidden;
 }
 
-/* --- XÓA hẳn cái rule generic gây xung đột:
-   .sidebar ul li { margin:15px 0; ... }
-   từ file style.css trước đó :contentReference[oaicite:0]{index=0} */
-
 .sidebar nav ul {
   list-style: none;
 }
 .sidebar nav ul li.nav-item {
   position: relative;
-  /* chính margin, padding: copy y xì home.css :contentReference[oaicite:1]{index=1} */
   margin: 12px 0;
   padding: 10px 0 10px 28px; /* padding-left:28px chừa chỗ icon */
   cursor: pointer;
@@ -58,7 +52,6 @@ body {
 .sidebar nav ul li.nav-item.active a {
   color: #ffdd57;
 }
-/* Đưa icon vào ::before giống home.css :contentReference[oaicite:2]{index=2} */
 .sidebar nav ul li.nav-item::before {
   content: "";
   position: absolute;
@@ -72,10 +65,8 @@ body {
 .sidebar nav ul li.library::before { background-image: url('imghome/library.png'); }
 .sidebar nav ul li.create::before  { background-image: url('imghome/create.png'); }
 .sidebar nav ul li.liked::before   { background-image: url('imghome/likesong.png'); }
-/* Nếu bạn không có bookmark.svg thì bỏ rule này hoặc đổi đường dẫn */
 .sidebar nav ul li.episodes::before{ background-image: url('imghome/bookmark.svg'); }
 
-/* Link bên trong nav-item */
 .sidebar nav ul li.nav-item a {
   display: block;
   width: 100%;
