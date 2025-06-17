@@ -360,7 +360,6 @@ body {
   background-repeat: no-repeat;
 }
 
-/* định nghĩa icon cho từng mục */
 .sidebar ul li.home::before {
   background-image: url('imghome/homee.png');
 }
