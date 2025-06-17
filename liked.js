@@ -1,119 +1,143 @@
 window.addEventListener('DOMContentLoaded', () => {
-  const tbody       = document.getElementById('songsList');
-  const searchInput = document.getElementById('search');
-  const liked       = JSON.parse(localStorage.getItem('vdcl_liked') || '[]');
+  const tbody         = document.getElementById('songsList');
+  const searchInput   = document.getElementById('search');
+  const liked         = JSON.parse(localStorage.getItem('vdcl_liked') || '[]');
 
-  // Player elements
-  const audio     = document.getElementById('audio-player');
-  const coverBar  = document.getElementById('coverBar');
-  const titleBar  = document.getElementById('titleBar');
-  const artistBar = document.getElementById('artistBar');
-  const btnPlay   = document.getElementById('btnPlay');
-  const btnLike   = document.getElementById('btnLike');
-  const progress  = document.getElementById('progressBar');
-  const curTime   = document.getElementById('curTime');
-  const durTime   = document.getElementById('durTime');
-  const bar       = document.getElementById('playerBar');
+  const audio          = document.getElementById('audio-player');
+  const coverBar       = document.getElementById('coverBar');
+  const titleBar       = document.getElementById('titleBar');
+  const artistBar      = document.getElementById('artistBar');
+  const btnPlay        = document.getElementById('btnPlay');
+  const playPauseIcon  = document.getElementById('playPauseIcon');
+  const btnShuffle     = document.getElementById('btnShuffle');
+  const btnPrev        = document.getElementById('btnPrev');
+  const btnNext        = document.getElementById('btnNext');
+  const btnLike        = document.getElementById('btnLike');
+  const progressBar    = document.getElementById('progressBar');
+  const curTime        = document.getElementById('curTime');
+  const durTime        = document.getElementById('durTime');
+  const playerBar      = document.getElementById('playerBar');
 
+  // Format seconds → m:ss
   function formatTime(sec) {
-    const m = Math.floor(sec/60);
-    const s = Math.floor(sec%60).toString().padStart(2,'0');
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60).toString().padStart(2, '0');
     return `${m}:${s}`;
   }
 
-  function playSong(item) {
-    bar.style.display = 'flex';
-    coverBar.src = item.cover;
-    titleBar.textContent = item.title;
-    artistBar.textContent = item.artist;
-    audio.src = item.src;    // item.src phải có đường dẫn MP3
-    audio.play();
-    btnPlay.textContent = '⏸️';
-  }
+  audio.addEventListener('loadedmetadata', () => {
+    progressBar.max     = Math.floor(audio.duration);
+    durTime.textContent = formatTime(audio.duration);
+  });
 
-  function render(songs) {
+  // Cập nhật progress & thời gian hiện tại
+  audio.addEventListener('timeupdate', () => {
+    progressBar.value   = Math.floor(audio.currentTime);
+    curTime.textContent = formatTime(audio.currentTime);
+  });
+
+  // Kéo thanh tiến độ
+  progressBar.addEventListener('input', () => {
+    audio.currentTime = progressBar.value;
+  });
+
+  // Play / Pause toggle
+  btnPlay.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+      playPauseIcon.src = 'imghome/playre.png';
+      playPauseIcon.alt = 'Pause';
+    } else {
+      audio.pause();
+      playPauseIcon.src = 'imghome/pausere.png';
+      playPauseIcon.alt = 'Play';
+    }
+  });
+
+  // Render danh sách bài
+  function render(list) {
     tbody.innerHTML = '';
-    if (!songs.length) {
+    if (!list.length) {
       const tr = document.createElement('tr');
-      tr.innerHTML = `<td colspan="4" style="text-align:center; padding:20px; color:#777;">
-                        No liked songs found.
-                      </td>`;
+      tr.innerHTML = `
+        <td colspan="4" style="text-align:center;padding:20px;color:#777">
+          No liked songs found.
+        </td>`;
       tbody.appendChild(tr);
       return;
     }
-    songs.forEach((it,i) => {
+    list.forEach((item, i) => {
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td>${i+1}</td>
+        <td>${i + 1}</td>
         <td class="cover-cell">
           <div class="song-title-wrapper">
-            <img src="${it.cover}" alt="${it.title}">
+            <img src="${item.cover}" alt="${item.title}">
             <div class="info">
-              <div class="title">${it.title}</div>
-              <div class="artist">${it.artist}</div>
+              <div class="title">${item.title}</div>
+              <div class="artist">${item.artist}</div>
             </div>
           </div>
         </td>
-        <td>${it.album||''}</td>
-        <td>${it.duration||''}</td>`;
-      tr.addEventListener('click', () => playSong(it));
+        <td>${item.album || ''}</td>
+        <td>${item.duration || ''}</td>`;
+      tr.addEventListener('click', () => {
+        // Hiện player bar và phát
+        playerBar.style.display = 'flex';
+        coverBar.src            = item.cover;
+        titleBar.textContent    = item.title;
+        artistBar.textContent   = item.artist;
+        audio.src               = item.src;
+        audio.play();
+        // Chuyển icon thành Pause
+        playPauseIcon.src       = 'imghome/playre.png';
+        playPauseIcon.alt       = 'Pause';
+      });
       tbody.appendChild(tr);
     });
   }
 
+  // Lần đầu render
   render(liked);
 
+  // Filter khi search
   searchInput.addEventListener('input', e => {
     const q = e.target.value.toLowerCase();
-    render(liked.filter(x =>
-      x.title.toLowerCase().includes(q) ||
-      x.artist.toLowerCase().includes(q)
-    ));
+    render(
+      liked.filter(x =>
+        x.title.toLowerCase().includes(q) ||
+        x.artist.toLowerCase().includes(q)
+      )
+    );
   });
 
-  // audio events
-  audio.addEventListener('loadedmetadata', () => {
-    progress.max = Math.floor(audio.duration);
-    durTime.textContent = formatTime(audio.duration);
-  });
-  audio.addEventListener('timeupdate', () => {
-    progress.value = Math.floor(audio.currentTime);
-    curTime.textContent = formatTime(audio.currentTime);
-  });
-  progress.addEventListener('input', () => {
-    audio.currentTime = progress.value;
-  });
-
-  // play/pause
-  btnPlay.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play(); btnPlay.textContent = '⏸️';
-    } else {
-      audio.pause(); btnPlay.textContent = '▶️';
-    }
-  });
-
-  // like/unlike
+  // Like / Unlike
   btnLike.addEventListener('click', () => {
-    let arr = JSON.parse(localStorage.getItem('vdcl_liked')||'[]');
-    const idx = arr.findIndex(x=>x.src===audio.src);
-    if (idx>=0) arr.splice(idx,1);
-    else arr.push({
-      src: audio.src,
-      cover: coverBar.src,
-      title: titleBar.textContent,
-      artist: artistBar.textContent
-    });
+    let arr = JSON.parse(localStorage.getItem('vdcl_liked') || '[]');
+    const idx = arr.findIndex(x => x.src === audio.src);
+    if (idx >= 0) {
+      arr.splice(idx, 1);
+    } else {
+      arr.push({
+        src:      audio.src,
+        cover:    coverBar.src,
+        title:    titleBar.textContent,
+        artist:   artistBar.textContent,
+        album:    '',
+        duration: durTime.textContent
+      });
+    }
     localStorage.setItem('vdcl_liked', JSON.stringify(arr));
-    btnLike.classList.toggle('liked', idx<0);
+    btnLike.classList.toggle('liked', idx < 0);
     render(arr);
   });
 
-  // user-menu (giữ nguyên)
+  // Dropdown TLTV
   const userBtn  = document.getElementById('userBtn');
   const userMenu = document.getElementById('userMenu');
   userBtn.addEventListener('click', e => {
-    e.stopPropagation(); userMenu.classList.toggle('show');
+    e.stopPropagation();
+    userMenu.classList.toggle('show');
   });
   userMenu.addEventListener('click', e => e.stopPropagation());
   document.addEventListener('click', () => userMenu.classList.remove('show'));
