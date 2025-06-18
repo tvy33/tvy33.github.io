@@ -13,11 +13,16 @@ body {
   background-color: #181818;
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
+.logo {
+  position: absolute;     /* cố định vị trí */
+  top: 20px;              /* cách mép trên 20px nếu muốn */
+  left: 20px;             /* cách mép trái 20px */
+}
+
 .logo img {
-  max-width: 50px; /* hoặc 100px, tuỳ kích thước mong muốn */
+  max-width: 100px;       /* điều chỉnh kích thước logo */
   height: auto;
   display: block;
-  margin: 0 auto; /* canh giữa logo */
 }
 
 
