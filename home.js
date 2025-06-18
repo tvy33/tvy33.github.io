@@ -11,7 +11,6 @@ const playPauseIcon = document.getElementById('playPauseIcon');  const likeBtn  
   const currentTime = document.getElementById('current-time');
   const durationEl  = document.getElementById('duration');
 
-  // --- HELPER: quản lý Liked Songs trong localStorage --- //
   function getLiked() {
     return JSON.parse(localStorage.getItem('vdcl_liked') || '[]');
   }
@@ -23,7 +22,6 @@ const playPauseIcon = document.getElementById('playPauseIcon');  const likeBtn  
     likeBtn.classList.toggle('liked', isLiked);
   }
 
-  // --- QUICK-ACCESS: click vào card để load & play bài --- //
   document.querySelectorAll('.quick-access .card').forEach(card => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', () => {
@@ -97,7 +95,6 @@ const playPauseIcon = document.getElementById('playPauseIcon');  const likeBtn  
   }
 });
 
-// --- dropdown cho nút user ---
 const userBtn  = document.getElementById('userBtn');
 const userMenu = document.getElementById('userMenu');
 
