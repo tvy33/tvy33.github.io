@@ -1,6 +1,4 @@
-document.querySelector('.btn-back').addEventListener('click', () => {
-  alert('Back button clicked!');
-});
+<button class="btn-back" onclick="window.location.href='home.html'">BACK</button>
 
 document.querySelector('.btn-primary').addEventListener('click', () => {
   alert('Getting started with Premium!');
