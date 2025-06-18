@@ -6,7 +6,7 @@ const focusPlaylists = [
 
 const vdlcPlaylists = [
   { title: "Today's Top Hits", desc: 'Ed Sheeran is on top of the world.',    img: 'imghome/ptg.jpg' },
-  { title: 'Rap GOAT!!!',       desc: 'New music from EMINEM.',                img: 'assets/eminem.jpg' },
+  { title: 'Rap GOAT!!!',       desc: 'New music from EMINEM.',                img: 'imghome/rapgoat.jpg' },
   { title: 'Road To Glory',     desc: 'The biggest songs of victory.',          img: 'imghome/road.jpg' }
 ];
 
