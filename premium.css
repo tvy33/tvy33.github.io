@@ -14,7 +14,7 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 .logo img {
-  max-width: 150px; /* hoặc 100px, tuỳ kích thước mong muốn */
+  max-width: 50px; /* hoặc 100px, tuỳ kích thước mong muốn */
   height: auto;
   display: block;
   margin: 0 auto; /* canh giữa logo */
