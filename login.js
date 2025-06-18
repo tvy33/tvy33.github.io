@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const enteredUsername = loginForm.querySelector('input[type="text"]').value.trim();
       const enteredPassword = loginForm.querySelector('input[type="password"]').value;
 
-      // Kiểm tra thông tin
       if (enteredUsername === VALID_USER.username && enteredPassword === VALID_USER.password) {
         // Lưu trạng thái đã đăng nhập
         localStorage.setItem('isLoggedIn', 'true');
