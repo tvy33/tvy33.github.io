@@ -1,1 +1,174 @@
-1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Based Personalized Music Recommendation - Home</title>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+  <div class="player-layout">
+    <aside class="sidebar">
+      <h1 class="logo">Music</h1>
+      <nav>
+        <ul>
+          <li class="nav-item home active">Home</li>
+          <li class="nav-item library"><a href="library.html">Your Library</a></li>
+          <li class="nav-item create"><a href="playlist.html">Create Playlist</a></li>
+          <li class="nav-item liked"><a href="liked.html">Liked Songs</a></li>
+          <li class="nav-item episodes">Your Episodes</li>
+        </ul>
+        
+      </nav>
+    </aside>
+
+    <header class="header">
+      <div class="nav-buttons">
+        <button class="nav-btn prev">←</button>
+        <button class="nav-btn next">→</button>
+      </div>
+      <input type="text" class="search" placeholder="What do you want to listen to?">
+      <div class="user-area">
+    <a href="premium.html" class="premium">Premium</a>
+        <button class="user" id="userBtn">TLTV ▾</button>
+        <ul class="user-menu" id="userMenu">
+          <li><a href="#">Account <span class="icon-external">⇲</span></a></li>
+          <li><a href="#">Support <span class="icon-external">⇲</span></a></li>
+          <li><a href="#">Settings</a></li>
+          <li><a href="login.html">Log out</a></li>
+        </ul>
+      </div>
+
+    </header>
+
+    <main class="main-area">
+      <section class="greeting">
+        <h2>Good afternoon</h2>
+        <div class="quick-access">
+          <div class="card"
+              data-src="audio/beethoven.mp3"
+              data-cover="imghome/beethoven.jpg"
+              data-title="Beethoven"
+              data-artist="Ludwig van Beethoven">
+            <img src="imghome/beethoven.jpg" alt="Beethoven">
+            <span>Beethoven</span></div>
+          <div class="card"
+              data-src="audio/vungkiuc.mp3"
+              data-cover="imghome/chilles.jpg"
+              data-title="Vùng ký ức"
+              data-artist="Chilles">
+            <img src="imghome/chilles.jpg" alt="Vùng ký ức">
+            <span>Vùng ký ức</span></div>
+
+          <div class="card"
+              data-src="audio/canon.mp3"
+              data-cover="imghome/piano.png"
+              data-title="Canon in D"
+              data-artist="Pachelbel">
+            <img src="imghome/piano.png" alt="Piano"><span>Canon in D</span></div>
+
+          <div class="card">
+            <img src="imghome/pc.jpg" alt="Cách chữa lành cơ thể tận gốc rễ"><span>Cách chữa lành cơ thể tận gốc rễ</span></div>
+          <div class="card"
+              data-src="audio/sobad.mp3"
+              data-cover="imghome/vstra.jpg"
+              data-title="So Bad"
+              data-artist="VSTRA">
+            <img src="imghome/vstra.jpg" alt="So Bad">
+            <span>So Bad</span></div>
+          
+          <div class="card"
+              data-src="audio/ynb.mp3"
+              data-cover="imghome/lana.jpg"
+              data-title="Young and Beautiful"
+              data-artist="Lana Del Rey">
+            <img src="imghome/lana.jpg" alt="Y&B">
+            <span>Young and Beautiful</span></div>
+
+          <div class="card"
+              data-src="audio/rar.mp3"
+              data-cover="imghome/rar.jpg"
+              data-title="ROSS AND RACHEL"
+              data-artist="Jake Miller">
+            <img src="imghome/rar.jpg" alt="R&R">
+            <span>ROSS AND RACHEL</span></div>
+
+          <div class="card"
+              data-src="audio/50feet.mp3"
+              data-cover="imghome/50feet.jpg"
+              data-title="50 Feet"
+              data-artist="SoMo">
+            <img src="imghome/50feet.jpg" alt="50 Feet">
+            <span>50 Feet</span></div>
+
+          <div class="card"
+              data-src="audio/ptg.mp3"
+              data-cover="imghome/ptg.jpg"
+              data-title="Photograph"
+              data-artist="Ed Sheeran">
+            <img src="imghome/ptg.jpg" alt="Photograph">
+            <span>Photograph</span></div>
+
+          <div class="card"
+              data-src="audio/Lauv.mp3"
+              data-cover="imghome/paris.jpg"
+              data-title="Paris In The Rain"
+              data-artist="Lauv">
+            <img src="imghome/paris.jpg" alt="Paris In The Rain">
+            <span>Paris In The Rain</span></div>
+        </div>
+
+      </section>
+
+      <section class="recommendations">
+        <h3>Episodes for you recommended by Music</h3>
+        <div class="episode-row">
+          <div class="episode"><img src="imghome/pcasts.jpg" alt="Better Version"></div>
+          <div class="episode"><img src="imghome/pcasts2.jpg" alt="Giải mã"></div>
+          <div class="episode"><img src="imghome/mus.jpg" alt="Where is love?"></div>
+          <div class="episode"><img src="imghome/mus2.jpg" alt="PHONG"></div>
+          <div class="episode"><img src="imghome/mus3.jpg" alt="Em khong can"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="music-bar">
+      <div class="song-info">
+        <img src="imghome/dmct.jpg" alt="Đắp mộ cuộc tình">
+        <div class="text">
+          <div class="title">Đắp mộ cuộc tình</div>
+          <div class="artist">Bằng Kiều, Quang Lê, Đan Nguyên</div>
+        </div>
+      </div>
+
+      <div class="controls-row">
+        <div class="controls">
+          <button id="shuffle">
+            <img src="imghome/loop.png" alt="Shuffle">
+          </button>
+          <button id="prev">
+            <img src="imghome/nex1.png" alt="Previous">
+          </button>
+          <button id="play">
+            <img id="playPauseIcon" src="imghome/playre.png" alt="Play">
+          </button>
+          <button id="next">
+            <img src="imghome/nex2.png" alt="Next">
+          </button>
+          <button id="like">❤</button>
+        </div>
+        <div class="timeline">
+          <span id="current-time">0:00</span>
+          <input type="range" id="progress" value="0" min="0" max="0">
+          <span id="duration">0:00</span>
+        </div>
+        <button id="volume">🔉</button>
+      </div>
+    </footer>
+  </div>
+
+  <audio id="audio-player" src="assets/song.mp3"></audio>
+
+  <script src="home.js"></script>
+</body>
+</html>
