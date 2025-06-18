@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const enteredPassword = loginForm.querySelector('input[type="password"]').value;
 
       if (enteredUsername === VALID_USER.username && enteredPassword === VALID_USER.password) {
-        // Lưu trạng thái đã đăng nhập
+        // Simulate successful login
         localStorage.setItem('isLoggedIn', 'true');
         window.location.href = 'home.html';
       } else {
