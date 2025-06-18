@@ -1,5 +1,3 @@
-/* signup.css */
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -9,8 +7,8 @@ body {
 .signup-container {
   width: 100%;
   max-width: 400px;
-  margin: 40px auto;           /* Giảm margin-top */
-  padding: 20px 20px 30px;     /* Giảm padding-top */
+  margin: 40px auto;
+  padding: 20px 20px 30px;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.1);
@@ -18,23 +16,21 @@ body {
 }
 
 .signup-container .logo {
-  width: 250px;                /* Kích thước logo */
+  width: 250px;
   height: 150px;
-  margin: -10px auto 10px;     /* Kéo logo lên sát khung, cách dưới 10px */
+  margin: -10px auto 10px;
   background: url('logo.png') no-repeat center top;
   background-size: contain;
   text-indent: -9999px;
   overflow: hidden;
 }
 
-/* Tiêu đề */
 .title {
   margin-bottom: 20px;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-/* Form */
 form {
   text-align: left;
 }
@@ -59,7 +55,6 @@ form input[type="password"] {
   font-size: 0.85rem;
 }
 
-/* Nút Sign Up */
 .btn.signup {
   margin-top: 20px;
   width: 100%;
