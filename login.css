@@ -1,4 +1,3 @@
-/* login.css */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -9,8 +8,8 @@ body {
 .login-container {
   width: 100%;
   max-width: 400px;
-  margin: 0 auto 10px;      /* Kéo container lên sát top hơn */
-padding: 0 20px 20px;    /* Giảm padding trên, tăng padding trái phải */
+  margin: 0 auto 10px;
+padding: 0 20px 20px;
   background-color: white;
   text-align: center;
   border-radius: 10px;
@@ -20,9 +19,9 @@ padding: 0 20px 20px;    /* Giảm padding trên, tăng padding trái phải */
 
 /* Logo */
 .login-container .logo {
-  width: 250px;                /* Kích thước logo */
+  width: 250px;
   height: 150px;
-  margin: -10px auto 10px;     /* Kéo logo lên sát khung, cách dưới 10px */
+  margin: -10px auto 10px;
   background: url('logo.png') no-repeat center top;
   background-size: contain;
   text-indent: -9999px;
@@ -121,9 +120,9 @@ form input[type="password"] {
 }
 .signup-btn {
   display: block;
-  width: 100%;                /* Đặt bằng width của nút Login */
+  width: 100%;
   padding: 12px;
-  margin: 10px 0 0;           /* Canh giữa và sát lên trên */
+  margin: 10px 0 0;
   border: 1px solid #333;
   border-radius: 25px;
   color: #333;
