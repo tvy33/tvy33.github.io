@@ -14,14 +14,14 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 .logo {
-  position: absolute; /* hoặc fixed nếu muốn nó luôn cố định khi cuộn */
+  position: absolute;
   top: 20px;
   left: 20px;
-  z-index: 1000; /* đảm bảo nằm trên */
+  z-index: 1000;
 }
 
 .logo img {
-  max-width: 100px; /* Thu nhỏ logo */
+  max-width: 100px; /* điều chỉnh kích thước logo */
   height: auto;
   display: block;
 }
@@ -31,6 +31,10 @@ body {
   font-weight: bold;
   color: #1DB954;
 }
+.header {
+  position: relative;
+}
+
 
 .nav-links a {
   margin-left: 20px;
