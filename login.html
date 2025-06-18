@@ -3,31 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Based Personalized Music Recommendation - Login</title>
+  <title>Login - AIMuse</title>
   <link rel="stylesheet" href="login.css" />
 </head>
 <body>
   <div class="login-container">
-    <div class="logo">VDCL</div>
+    <div class="logo">AIMuse</div>
 
-    <button class="btn facebook">CONTINUE WITH FACEBOOK</button>
-    <button class="btn apple">CONTINUE WITH APPLE</button>
-    <button class="btn google">CONTINUE WITH GOOGLE</button>
+    <div class="divider"><span>LOGIN</span></div>
 
-    <div class="divider"><span>OR</span></div>
+    <form action="/login" method="POST">
+      <label for="email">Email</label>
+      <input name="email" type="text" placeholder="Email" required>
 
-    <form id="login-form">
-      <label>Email address or username</label>
-      <input type="text" placeholder="Email address or username" required>
-
-      <label>Password</label>
-      <div class="password-wrapper">
-        <input type="password" placeholder="Password" required>
-        <span class="toggle"></span>
-      </div>
+      <label for="password">Password</label>
+      <input name="password" type="password" placeholder="Password" required>
 
       <div class="options">
-        <a href="#">Forgot your password?</a>
         <label><input type="checkbox" checked> Remember me</label>
       </div>
 
@@ -36,10 +28,8 @@
 
     <div class="signup">
       <p>Don't have an account?</p>
-      <a href="signup.html" class="btn signup-btn">SIGN UP FOR AIMUSE</a>
+      <a href="signup.html" class="btn signup-btn">SIGN UP</a>
     </div>
   </div>
-
-  <script src="login.js"></script>
 </body>
 </html>
