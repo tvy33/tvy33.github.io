@@ -14,7 +14,7 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 .logo img {
-  width: 100px; /* hoặc kích thước bạn muốn */
+  width: 20px; /* hoặc kích thước bạn muốn */
   height: auto;
   display: block;
 }
