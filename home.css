@@ -304,7 +304,7 @@ body {
   list-style: none;
   padding: 8px 0;
   margin: 0;
-  display: none;       /* ẩn mặc định */
+  display: none;
   z-index: 10;
 }
 
@@ -337,14 +337,14 @@ body {
 }
 .sidebar ul li.nav-item {
   position: relative;
-  padding-left: 28px;    /* chừa chỗ cho icon */
+  padding-left: 28px;
   margin: 12px 0;
   cursor: pointer;
   transition: color .3s;
 }
 
 .sidebar ul li.nav-item:hover {
-  color: #ffdd57;       /* vàng khi hover */
+  color: #ffdd57;
 }
 
 .sidebar ul li.nav-item::before {
