@@ -14,10 +14,12 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 .logo img {
-  width: 20px; /* hoặc kích thước bạn muốn */
+  max-width: 150px; /* hoặc 100px, tuỳ kích thước mong muốn */
   height: auto;
   display: block;
+  margin: 0 auto; /* canh giữa logo */
 }
+
 
 .header .logo {
   font-size: 10px;
