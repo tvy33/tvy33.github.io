@@ -1,26 +1,27 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Based Personalized Music Recommendation - Sign Up</title>
-  <link rel="stylesheet" href="signup.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - AIMuse</title>
+  <link rel="stylesheet" href="signup.css" />
 </head>
 <body>
   <div class="signup-container">
-    <div class="logo"> AI-Based Personalized Music Recommendation</div>
+    <div class="logo">AIMuse</div>
 
-    <h2 class="title">Sign Up</h2>
+    <div class="divider"><span>SIGN UP</span></div>
 
-    <form id="signup-form">
-      <label for="email">Email address or username</label>
-      <input id="email" type="text" placeholder="Email address or username" required>
+    <form action="/register" method="POST">
+      <label for="email">Email</label>
+      <input name="email" type="text" placeholder="Email" required>
 
       <label for="password">Password</label>
-      <input id="password" type="password" placeholder="Password" required>
+      <input name="password" type="password" placeholder="Password" required>
 
       <label for="confirm">Confirm Password</label>
-      <input id="confirm" type="password" placeholder="Password" required>
+      <input name="confirm" type="password" placeholder="Confirm Password" required>
 
       <div class="options">
         <label><input type="checkbox" checked> Remember me</label>
@@ -28,8 +29,11 @@
 
       <button type="submit" class="btn signup">SIGN UP</button>
     </form>
-  </div>
 
-  <script src="signup.js"></script>
+    <div class="login-link">
+      <p>Already have an account?</p>
+      <a href="login.html" class="btn login-btn">LOG IN</a>
+    </div>
+  </div>
 </body>
 </html>
