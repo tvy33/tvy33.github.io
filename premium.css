@@ -14,17 +14,17 @@ body {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 .logo {
-  position: absolute;     /* cố định vị trí */
-  top: 20px;              /* cách mép trên 20px nếu muốn */
-  left: 20px;             /* cách mép trái 20px */
+  position: absolute; /* hoặc fixed nếu muốn nó luôn cố định khi cuộn */
+  top: 20px;
+  left: 20px;
+  z-index: 1000; /* đảm bảo nằm trên */
 }
 
 .logo img {
-  max-width: 100px;       /* điều chỉnh kích thước logo */
+  max-width: 100px; /* Thu nhỏ logo */
   height: auto;
   display: block;
 }
-
 
 .header .logo {
   font-size: 10px;
